@@ -17,7 +17,7 @@ public class StreamOfLines
 
       // count occurrences of each word in a Stream<String> sorted by word
       Map<String, Long> wordCounts = 
-         Files.lines(Paths.get("Chapter2Paragraph.txt"))
+         Files.lines(Paths.get("src/ch17/fig17_17/Chapter2Paragraph.txt"))
               .map(line -> line.replaceAll("(?!')\\p{P}", ""))
               .flatMap(line -> pattern.splitAsStream(line))
               .collect(Collectors.groupingBy(String::toLowerCase,
