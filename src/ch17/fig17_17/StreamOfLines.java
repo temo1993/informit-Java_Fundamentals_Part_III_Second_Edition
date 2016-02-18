@@ -19,7 +19,7 @@ public class StreamOfLines
       Map<String, Long> wordCounts = 
          Files.lines(Paths.get("src/ch17/fig17_17/Chapter2Paragraph.txt"))
               .map(line -> line.replaceAll("(?!')\\p{P}", ""))
-              .flatMap(line -> pattern.splitAsStream(line))
+              .flatMap(pattern::splitAsStream)
               .collect(Collectors.groupingBy(String::toLowerCase,
                  TreeMap::new, Collectors.counting()));
       
